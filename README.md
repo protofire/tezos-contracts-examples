@@ -1,8 +1,8 @@
-## Tezos contracts examples
-You will find some examples of contracts using in ligo.
+## Tezos smart contracts 
 
-- Security smarth contracts examples
-- Inter-Contract Invocations
-- Math operations
-- Conversions
+This is a recopilation for smart contract development in Tezos.
 
+* Patterns used for inter-contract invocations.
+* Implementations of role based contract example.
+* Flexible owner permissioning contract.
+* Some convertions and math operations.

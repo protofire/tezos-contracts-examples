@@ -1,3 +1,12 @@
+### Ownership (owners.ligo):
+Sometimes we need to add simple authorization and access control mechanisms to our contract. This example allows some users to perform some exclusive access to specific functions. This can be useful for simple systems or just quick prototyping.
+
+
+### Roles access control (role.ligo):
+On occasions different levels of authorization are often needed. A role is an abstract name for the permission to access a particular set of resources or entry points
+Its usage is easy, for each role that you want to define you can add as a union type annotation. We manage a big_map that holds the list of accounts with that role.
+
+
 ### Role dry-run commands
 <pre><code>
 ligo dry-run role.ligo --format=json --syntax=pascaligo  main 'AddAddress(("tz1MbY6h2rAVGECbMj987EyrhBrqt6eoX9Q9": address))' 'record [users = (big_map [] : big_map(address, role));]'

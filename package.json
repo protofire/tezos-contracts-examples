@@ -1,0 +1,12 @@
+{
+  "name": "defi-contracts-examples",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=v10.20.1",
+    "yarn": "^1.12.3"
+  },
+  "dependencies": {
+    "@taquito/taquito": "^6.1.0-beta.0"
+  }
+}

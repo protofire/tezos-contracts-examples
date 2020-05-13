@@ -3,7 +3,7 @@ const { InMemorySigner } = require('@taquito/signer')
 
 // Init config
 const wallet = require('./wallet.json')
-const contractInspectorAddress = "KT1JCpi8dRfUGZ2kfCm1QUdxtTaQC8MkeiAF"
+const contractInspectorAddress = "KT1Pjc9cUypMwv3zqHVmApXws1Agf7w7e7JG"
 const contractSenderAddress = "KT1TYv6hZbP49w3ynnd2C6D3sv8DoW26yDYe"
 const signer = InMemorySigner.fromFundraiser(wallet.email, wallet.password, wallet.mnemonic.join(' '))
 const rpc = "https://api.tez.ie/rpc/carthagenet"
@@ -22,7 +22,7 @@ const useInspector = async () => {
     console.log(`Trying to setting value: ${barValue}`)
     await operationSender.confirmation()
 
-    const operationInspector = await contractInspector.methods.getFoo(UnitValue).send()
+    const operationInspector = await contractInspector.methods.getFoo(contractSenderAddress).send()
     await operationInspector.confirmation()
 
     const contractInspectorAfter = await contractInspector.storage()

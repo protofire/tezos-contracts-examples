@@ -1,5 +1,5 @@
 type action is
-  | GetFoo of (unit)
+  | GetFoo of (address)
   | SetFoo of (int)
 
 type store is record
@@ -15,9 +15,7 @@ type request is record
   callback : contract(int)
 end
 
-const destinationContactAddress: address = ("KT1TYv6hZbP49w3ynnd2C6D3sv8DoW26yDYe" : address)
-
-function getFoo(var store: store): return is
+function getFoo(const senderContractAddress: address; var store: store): return is
     block {
         // The entry point where the information will arrive in THIS contract
         const requested : request = record [
@@ -30,7 +28,7 @@ function getFoo(var store: store): return is
         // The entry point of the contract, from where we are going to obtain the information
         // Must be of the same type, request, see the "contract(request)"
         const destination : contract (request) =
-            case (Tezos.get_entrypoint_opt ("%getBar", destinationContactAddress) : option (contract (request))) of
+            case (Tezos.get_entrypoint_opt ("%getBar", senderContractAddress) : option (contract (request))) of
                 | Some (cb) -> cb
                 | None -> (failwith ("Entrypoint not found.") : contract (request))
             end;
@@ -46,6 +44,6 @@ function main (const action: action; var store: store): return is
   block {
     skip
   } with case action of
-    | GetFoo(n) -> getFoo(store)
+    | GetFoo(n) -> getFoo(n, store)
     | SetFoo(n) -> setFoo(n, store)
   end;

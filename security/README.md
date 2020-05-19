@@ -1,4 +1,4 @@
-### Ownership (owners.ligo):
+### Ownership (owner.ligo):
 Sometimes we need to add simple authorization and access control mechanisms to our contract. This example allows some users to perform some exclusive access to specific functions. This can be useful for simple systems or just quick prototyping.
 
 
